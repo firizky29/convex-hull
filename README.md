@@ -1,4 +1,4 @@
-# Convex Hull
+# Convex Hull Algorithm
 ## About Program
 This is a program to visualize **linear separability dataset** with the help of convex-hull finding algorithm. It uses divide and conquer algorithm with O(n log n) overall time complexity. This algorithm sometimes called quickhull algorithm.
 
