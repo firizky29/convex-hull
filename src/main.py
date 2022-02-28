@@ -173,7 +173,7 @@ def plotHull(data, df, x=0, y=1):
     # dan kolom ke-y untuk dijadikan data yang dicari 
     # convex hull-nya
     plt.figure(figsize = (10, 6))
-    colors = ['blue','red','green','yellow', 'azure', 'lime', 'darkgreen', 'black', 'cyan', 'aqua','pink', 'crimson']
+    colors = ['blue','red','green','yellow', 'azure', 'lime', 'darkgreen', 'black', 'aqua','pink', 'crimson']
     plt.title(data.feature_names[x].title() + ' vs ' + data.feature_names[y].title())
     plt.xlabel(data.feature_names[x])
     plt.ylabel(data.feature_names[y])
@@ -183,12 +183,13 @@ def plotHull(data, df, x=0, y=1):
         hull = MyConvexHull(np.array(bucket))
         plt.scatter(bucket[:, 0], bucket[:, 1], label=data.target_names[i])
         for simplex in hull:
-            plt.plot(bucket[simplex, 0], bucket[simplex, 1], colors[i%12])
+            plt.plot(bucket[simplex, 0], bucket[simplex, 1], colors[i%11])
     plt.legend()
     plt.show()
 
 
 def interface():
+    # antarmuka program
     print(bcolors.BOLD + "WELCOME!" + bcolors.ENDC)
     print("This is a program to find a convex hull from")
     print("a given dataset. The goal of this program is")
@@ -206,6 +207,8 @@ def interface():
     """)
 
 def start():
+    # fungsi untuk melakukan pencarian convex hull berdasarkan spesifikasi
+    # yang diberikan user
     try:
         id = int(input("Type the index of dataset you wish to analyze: "))
         if(id > 4 or id < -1):
